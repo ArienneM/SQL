@@ -34,7 +34,7 @@ ORDER BY price
 SELECT SUM (price)
 FROM superstore
 ;
-
+"Finding the most expensive product in Kitchen Supplies category"
 SELECT MAX (price)
 FROM superstore
-WHERE "Kitchen Supplies";
+WHERE category="Kitchen Supplies";
