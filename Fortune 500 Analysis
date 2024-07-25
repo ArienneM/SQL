@@ -66,7 +66,7 @@ FROM fortune_companies;
 -- Companies sorted by Maternity Leave. Short is less than 10 weeks, long is longer than 10 weeks. 
 SELECT company_name,
 CASE WHEN maternity_leave_weeks>=10
- THEN "long_maternity" ELSE "short_maternity" END "maternity_leave" 
+ THEN "more_than_10_weeks" ELSE "less_than_10_weeks" END "maternity_leave_length" 
 FROM fortune_companies
 GROUP BY maternity_leave_weeks;
 
