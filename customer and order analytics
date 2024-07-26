@@ -59,3 +59,37 @@ ON FEB.orderid=cust.order_id
 WHERE Feb.Quantity>2
 AND length(orderid) = 6
 AND orderid <> 'Order ID';
+
+
+--Selecting order dates for specific dates
+
+SELECT orderdate
+FROM BIT_DB.FebSales
+WHERE orderdate between '02/13/19 00:00' AND '02/18/19 00:00';
+
+-- Checking locations for a specific time and date
+SELECT location
+FROM BIT_DB.FebSales
+WHERE orderdate= '02/18/19 01:35';
+
+-- Selecting amount of sales for a specific day
+SELECT SUM(quantity)
+FROM BIT_DB.FebSales
+WHERE orderdate like '02/18/19%';
+
+--Seeing how many batteries are available
+SELECT distinct Product
+FROM BIT_DB.FebSales
+WHERE Product like '%Batteries%';
+
+-- Checking prices that end in .99
+SELECT distinct Product,price
+FROM BIT_DB.FebSales
+WHERE price like '%99';
+
+-- Seeing what prodcuts were sold in Los Angeles and how many were sold
+SELECT  Product
+,SUM(quantity)
+FROM BIT_DB.FebSales
+WHERE location like '%Los Angeles%'
+GROUP BY Product
